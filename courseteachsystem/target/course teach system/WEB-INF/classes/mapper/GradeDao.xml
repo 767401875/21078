@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.dao.GradeDao">
+    <select id="queryGrade" resultType="com.ts.entity.Grade">
+        select course_id courseId, course_name courseName, credit, course_nature courseNature, grade
+        from ts_grade
+    </select>
+    <select id="queryClassesAll" resultType="com.ts.entity.Classes">
+        select s.student_id studentId, student_name studentName, sex, old_name oldName, birth_date birthDate, people, birth_place birthPlace,
+			 politics_status politicsStatus, original_place originalPlace, major, Class aClass, academic_structure academicStructure, length_school lengthSchool,
+			 roll_status rollStatus, enter_year enterYear, test_num testNum, phone, post_code postCode, high_school highSchool, email, exam_num examNum, id_num idNum,
+			 education, hmt_num hmtNum, family_location familyLocation, F_name FName, M_name MName, F_phone FPhone, M_phone MPhone, U_phone UPhone, Password, College,
+			 c.curriculum_id curriculumId, curriculum_name curriculumId, teacher_name teacherName, collega, nature, category, term, examine, week, count_time countTime, test_time testTime, place
+        from student s, curriculum c, class sc
+        where s.student_id = sc.student_id and sc.curriculum_id = c.curriculum_id
+
+    </select>
+</mapper>
